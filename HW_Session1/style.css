@@ -1,0 +1,103 @@
+
+header{
+    background: rgba(11, 10, 100, 0.9);
+    padding: 10px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li a {
+    margin: 10px;
+    color: white;
+}
+
+li a:hover {
+    background-color:rgba(241, 245, 6, 0.5);
+}
+
+main {
+    display: flex;
+}
+
+section {
+    background: rgb(245, 175, 71);
+    box-sizing: border-box;
+}
+
+section h3 {
+    text-align: left;
+    color:rgb(206, 60, 2);
+}
+#basic img {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.sec1 {
+    width: 30%;
+}
+
+.sec2 {
+    width: 50%;
+}
+
+h1 {
+    text-align: center;
+    font-family: monospace;
+}
+
+article {
+    background: rgb(242, 247, 242);
+    margin-bottom: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+article p {
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article img {
+    width: 80%;
+    height: 10%;
+}
+aside {
+    background: rgb(245, 175, 71);
+    width: 20%;
+    border: 10px solid rgba(23, 22, 107, 0.7);
+    border-radius: 5px;
+    padding: 40% 1%; 
+    box-sizing: border-box;
+}
+
+aside h2 {
+    font-family: monospace;
+}
+
+#userid {
+    width: 100%;
+}
+
+#userpwd {
+    width: 100%;
+}
+
+footer {
+    background: rgb(245, 175, 71);
+    padding: 20px;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+footer a img{
+    width: 80px;
+    height: 50px;
+}

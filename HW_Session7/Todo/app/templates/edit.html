@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'edit.css' %}"/>
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post"> <!--Q이건 왜 "post"인걸까,  action은?-->
+        {% csrf_token %}
+        <div class="title">
+            <label for="title">할일</label>
+            <input type="text" id="title" name="title" value="{{ post.title }}">
+        </div>
+        <div class="content">
+            <label for="content">내용</label>
+            <textarea name="content" id="content" cols="30" rows="10">{{ post.content }}</textarea>
+        </div>
+        <div class="deadline">
+            <label for="deadline">기한</label>
+            <input type="date" name="deadline" id="deadline" value="{{ post.deadline }}">
+        </div>
+        <a class="home" href="{% url 'home' %}">홈으로</a>
+        <button type="submit">SAVE</button>
+    </form>
+</body>

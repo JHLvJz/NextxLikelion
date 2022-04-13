@@ -1,0 +1,82 @@
+div {
+    border: 3px solid black;
+    width:65%;
+    height: 700px;
+    position: relative;
+    left: 19%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text {
+    width: 90%;
+    height: 60%;
+    border: 3px solid royalblue;
+    border-radius: 5px;
+    font-size: 170%;
+}
+
+#input {
+    color: royalblue;
+    font-weight: bold;
+}
+
+.len { 
+    width: 90%;
+    height: 10%;
+    font-size: 180%;
+    font-weight: bold;
+    text-align: left;
+}
+
+.no_blank {
+    width: 90%;
+    height: 10%;
+    font-size: 180%;
+    font-weight: bold;
+    text-align: left;
+}
+
+.word {
+    width: 90%;
+    height: 10%;
+    font-size: 180%;
+    font-weight: bold;
+    text-align: left;
+}
+
+#num {
+    font-size: 220%;
+    font-weight: bold;
+    color: royalblue;
+    margin-top: 5%;
+}
+
+#t1 {
+    background-color: palegreen;
+    margin-right: 5%;
+}
+
+button {
+    position: absolute;
+    font-size: 120%;
+    font-weight: bold;
+    width: 18%;
+    height: 5%;
+    top: 92%;
+    right: 3%;
+}
+
+button a {
+    text-decoration-line: none;
+    color: black;
+}
+
+button:hover {
+    background-color: royalblue;
+}
+
+button a:hover {
+    color: white;
+}

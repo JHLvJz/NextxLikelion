@@ -1,0 +1,89 @@
+* {
+    color: white;
+}
+
+ul {
+    width: 50%;
+    height: 450px;
+    border: 13px solid rgb(6, 6, 196);
+    position: relative;
+    top: 30px;
+    left: 25%;
+    list-style: none;
+    font-family: 나눔바른펜OTF;
+    font-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    width: 90%;
+    margin-top: 5%;
+    margin-left: 45%;
+    position: relative;
+}
+
+li > a {
+    font-size: 150%;
+    text-decoration: rgb(255, 179, 0) wavy underline;
+    text-decoration-thickness: 2px;
+}
+
+.add {
+    background-color: white;
+    width: 5%;
+    text-align: center;
+    position: absolute;
+    bottom: 15%;
+    right: 23%;
+}
+.add > a {
+    font-family: 나눔바른펜OTF;
+    font-size: 120%;
+    color: rgb(255, 179, 0);
+    text-decoration-line: none;
+}
+
+.add:hover {
+    background-color: rgba(255, 255, 255, 0.399);
+}
+
+
+span {
+    color: rgba(255, 255, 255, 0.767);
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+ 
+body {
+    background-color: black;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 300%;
+    font-family: Times;
+    color: #FB4264;
+    text-shadow: 0 0 3vw #F40A35;
+    animation: Times 1s ease infinite;
+  -moz-animation: Times 1s ease infinite;
+  -webkit-animation: Times 1s ease infinite;
+
+    position: relative;
+    top: 50px;
+    left: 25%;
+}
+
+@keyframes Times {
+    0%,
+    100% {
+      text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+      color: #FED128;
+    }
+    50% {
+      text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+      color: #806914;
+    }
+  }

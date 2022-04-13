@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'result.css' %}">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Document</title> 
+    </head>
+    <body>
+        <div>
+            <p class="text">
+                <span id="input">입력한 텍스트: </span><span>{{text}}</span>
+            </p>
+            <p class="len">
+                <span id="t1">글자수: </span><span id="num">{{total_len}}</span>
+            </p>
+            <p class="no_blank">
+                <span id="t1">공백제외 글자수: </span><span id="num">{{no_blank_len}}</span>
+            </p>
+            <p class="word">
+                <span id="t1">단어 개수: </span><span id="num">{{word}}</span>
+            </p>
+            <button type="button"><a href="./count">다시하기</a></button>
+        </div>
+    </body>
+</html>

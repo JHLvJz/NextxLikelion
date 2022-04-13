@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <div class="title">
+            <h2>할 일: </h2>
+            <p>{{ post.title }}</p>
+        </div>
+        <div class="content">
+            <h2>내용:</h2>
+            <p>{{ post.content }}</p>
+        </div>
+        <div class="deadline">
+            <h2>마감 기한:</h2>
+            <p>{{ post.deadline }}</p>
+        </div>
+    </div>
+    
+    <a class="home" href="{% url 'home' %}">홈으로</a>
+    <a class="edit" href="{% url 'edit' post.pk %}">수정</a> <!--여기는 왜 post.pk일까요-->
+    <a class="delete" href="{% url 'delete' post.pk %}">삭제</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+ <body>
+     <form>
+         <section class="guess1">
+             <label for="guess">숫자를 맞혀보세요!</label>
+             <input type="number" min="0" max="9" id="guess" required>
+             <label for="reason">그 숫자를 고른 이유는?</label>
+            <textarea minlength="5" maxlength="20" rows="5" cols="20" id="reason" required>이유를 써보세요~</textarea>
+         </section>
+         <hr>
+         <section class="guess2">
+             <lable for="second">좀더 큰 수를 써보세요!</lable>
+            <input type="text" pattern="[0-9]{8,10}" id="second" required>
+            <input type="submit" value="Finish!">
+         </section>
+     </form>
+ </body>

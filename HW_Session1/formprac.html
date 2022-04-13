@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PracticeForm</title>
+    </head>
+</html>
+
+<body>
+    <h1>Who Are You?</h1>
+    <form>
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name">
+        <label for="pwd">Your Password</label>
+        <input type="password" name="pwd" id="pwd">
+        <hr>
+
+        <label for="height">Height</label>
+        <input type="number" name="height" id="height" step="1"> 
+        <label for="happy">Your Happiness</label>
+        <input type="range" name="happy" id="happy" min="0" max="5" step="1">
+        <hr>
+        <p>What's your favorite 지후s?</p>
+        <label for="jh1">알고있지후</label>
+        <input type="checkbox" value="알고있지후" name="fav" id="jh1">
+        <label for="jh2">모르고있지후</label>
+        <input type="checkbox" value="모르고있지후" name="fav" id="jh2">
+        <label for="jh3">행복하지후</label>
+        <input type="checkbox" value="행복하지후" name="fav" id="jh3"
+        >    
+        <br>
+        <p>Guess! Who will be the most exhausted person?</p>
+        <label for="p1">매일밤 연속으로 엽떡 먹은 지후</label>
+        <input type="radio" value="엽떡지후" name="exhaust" id="p1">
+        <label for="p2">소주 1.5병 꾸역꾸역 마신 지후</label>
+        <input type="radio" value="술지후" name="exhaust" id="p2">
+        <labe for="p3">밤샘 과제 달린 지후</labe>
+        <input type="radio" value="과제지후" name="exhaust" id="p3">
+        <hr>
+
+        <label for="Dinner">What's for dinner?</label>
+        <select id="Dinner" name="dinner">
+            <option value="Goopne">고추바사삭치킨</option>
+            <option value="BHC">맛쵸킹치킨</option>
+            <option value="BBQ">황금올리브치킨</option>
+            <option value="60">호랑이치킨</option>
+            <option value="pradak">블랙알리오치킨</option>
+        </select>
+
+        <label for="Place">Where is your favorite place?</label>
+        <input type="text" id="Place" list="spots" name="Place">
+        <datalist id="spots">
+            <option value="헌팅포차"></option>
+            <option value="전시회"></option>
+            <option value="동네 맛집"></option>
+            <option value="분위기 좋은 카페"></option>
+        </datalist>
+        <hr>
+
+        <label for="Detail">Please introudce yourself more!</label>
+        <textarea id="Detail" name="introduction" rows="10" cols="30">
+        I'm~~</textarea>
+
+        <input type="submit" value="Send">
+    </form>
+
+
+</body>

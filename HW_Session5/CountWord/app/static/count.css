@@ -1,0 +1,45 @@
+div {
+    border: 3px solid black;
+    width: 65%;
+    height: 700px;
+    position: relative;
+    left: 19%;
+    
+}
+
+h2 {
+    position: relative;
+    left: 10%;
+    padding: 0%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+textarea {
+    width: 80%;
+    font-size: 180%;
+    border: 3px solid royalblue;
+}
+
+input {
+    position: absolute;
+    left: 40%;
+    width: 20%;
+    height: 6%;
+    top: 100%;
+    font-size: 150%;
+    font-weight: bold;
+    background-color: royalblue;
+    color: white;
+}
+
+input:hover {
+    background-color: palegreen;
+    font-weight: bold;
+    color: black;
+}
+

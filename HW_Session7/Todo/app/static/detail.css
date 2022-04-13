@@ -1,0 +1,73 @@
+* {
+    color: white;
+    font-family: 나눔바른펜OTF;
+}
+
+body {
+    background-color: black;
+    overflow-x: hidden;
+}
+
+.box {
+    width: 50%;
+    height: 450px;
+    border: 13px solid rgb(6, 6, 196);
+    position: relative;
+    top: 120px;
+    left: 27%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    position: relative;
+    left: 10%;
+    margin-top: 3%;
+}
+
+.content {
+    position: relative;
+    left: 10%;
+    margin-top: 3%;
+}
+
+.deadline {
+    position: relative;
+    left: 10%;
+    margin-top: 3%;
+}
+
+h2 {
+    text-decoration: underline overline;
+    text-decoration-color: rgb(255, 179, 0);
+}
+
+a {
+    background-color: white;
+    font-family: 나눔바른펜OTF;
+    font-size: 120%;
+    color: rgb(255, 179, 0);
+    text-decoration-line: none;
+}
+
+a:hover {
+    background-color: rgba(255, 255, 255, 0.399);
+}
+
+.home {
+    position: absolute;
+    right: 30%;
+    bottom: 20%;
+}
+
+.edit {
+    position: absolute;
+    right: 27%;
+    bottom: 20%;
+}
+
+.delete {
+    position: absolute;
+    right: 24%;
+    bottom: 20%;
+}

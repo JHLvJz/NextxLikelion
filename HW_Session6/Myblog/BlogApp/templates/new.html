@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>글 추가 페이지</h2>
+        <form action="/new" method="post">
+        {% csrf_token %}
+        <div>
+            <div>글 제목</div>
+            <input type="text" name="title" />
+        </div>
+        <div>
+            <label><input type="radio" name="category" value="hobby">Hobby</label>
+            <label><input type="radio" name="category" value="food">Food</label>
+            <label><input type="radio" name="category" value="programming">Programming</label>
+            <div>글 내용</div>
+            <textarea name="content" cols="40" rows="20"></textarea>
+        </div>
+        <button type="submit">작성 완료</button>
+        </form>
+    </body>
+</html>

@@ -6,23 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'Detail.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'category.css' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Caveat+Brush&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Detail</h1>
-        <div class="title">
-            <h2>{{ article.title }}</h2>
-        </div>
-        <div class="category">
-            <div>{{ article.category }}</div>
-        </div>
-        <div class="content">
-            <h3>Content</h3>
-            <div class="content_detail">{{ article.content }}</div>
-        </div>
-        <a class="home" href="{% url 'list' %}">HOME</a>
+        <h1>My_{{ category }}_</h1>
+        <ul class="container">
+            {% for article in articles %}
+            <div class="line"></div>
+            <a href="{% url 'detail' article.id %}">{{ article.title }}</a>
+            <br>
+            <p>{{ article.content }}</p>
+            <div class="line"></div>
+            {% endfor %}
+        </ul>
+        <a class='home' href="{% url 'list' %}">HOME</a>
     </body>
 </html>

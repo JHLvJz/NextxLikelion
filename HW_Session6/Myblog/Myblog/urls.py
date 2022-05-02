@@ -22,4 +22,5 @@ urlpatterns = [
     path('new', views.new, name='new'),
     path('list', views.list, name='list'),
     path('detail/<int:article_id>', views.detail, name='detail'),
+    path('category/<str:article_category>', views.category, name='category'),
 ]

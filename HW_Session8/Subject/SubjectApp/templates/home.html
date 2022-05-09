@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Hahmlet:wght@100;200;300;400;500&family=Koulen&family=Roboto+Condensed:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    <div class="Major">
+        <div class="bar">
+            <h3>🧑‍🎓Go to Majors</h3>
+            <a href={% url 'AddNew' %} class="newbutton">Add</a>
+        </div>
+        <ul>
+            {% for major in majors %}
+            <div class="majors">
+                <li>
+                    <a href="{% url 'major' major.pk %}">{{ major.name }}</a>
+                    <span><a href="{% url 'editMajor' major.pk %}" class="button">Edit</a></span>
+                    <span><a href="{% url 'deleteMajor' major.pk %}" class="button">Delete</a></span>
+                </li>
+            </div>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="Subject">
+        <div class="bar">
+            <h1>Subject Lists</h1>
+            <a href={% url 'AddNewSubject' %} class="newbutton">Add</a>
+        </div>
+
+        <ol>
+            {% for subject in subjects %}
+            <div>
+                <li>
+                    <div class="SubjectGroup">
+                        <span class="subjectname">{{ subject.subject_name }}</span>
+                        <span> | {{ subject.major }} | </span>
+                        <span>{{ subject.prof_name }}</span>
+                        <span><a href="{% url 'editSubject' subject.pk %}" class="button">Edit</a></span>
+                        <span><a href="{% url 'deleteSubject' subject.pk %}" class="button">Delete</a></span>
+                        <div class="memos"><a href="#"></a>{{ subject.memo|linebreaks }}</a></div>
+                    </div>
+                </li>
+            </div>
+            {% endfor %}
+        </ol>
+    </div>
+</body>
+</html>

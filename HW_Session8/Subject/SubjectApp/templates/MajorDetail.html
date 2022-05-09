@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>EDU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Hahmlet:wght@100;200;300;400;500&family=Koulen&family=Roboto+Condensed:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MajorDetail.css' %}">
+</head>
+
+<body>
+    <h2>{{ major }} 과목</h2>
+    <ul>
+        {% for subject in subjects %}
+        <div class="list">
+            <li>
+                <div>
+                    <span class="subjectname">{{ subject.subject_name }}</span>
+                    <span>| {{ subject.major }} |</span>
+                    <span>{{ subject.prof_name }} |</span>
+
+                    <a href="{% url 'editSubject' subject.pk %}" class="button">Edit</a>
+                    <a href="{% url 'deleteSubject' subject.pk %}" class="button">Delete</a>
+
+                    <div class="memos"><a href="#"></a>{{ subject.memo|linebreaks }}</a></div>
+                </div>
+            </li>
+        </div>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}" class="home">Home</a>
+</body>
+</html>

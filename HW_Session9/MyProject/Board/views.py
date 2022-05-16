@@ -10,12 +10,16 @@ def home_page(request):
 
 def create_page(request):
     if request.method == 'POST': #POST형태로 클라이언트 요청이 들어오면,
+        print("post")
         new_article = Article.objects.create(
             title = request.POST['title'],
             content = request.POST['content'],
             viewcount = 0
         )
-        return redirect('home_page', new_article.pk)
+        print(new_article.pk)
+        print(new_article.title)
+        print(new_article.content)
+        return redirect('home_page')
         #redirect의 함수 원형: redirect(to, permanent=False, *args, **kwargs)
         # 이동할 URL이 첫번째 인자
         # id = 장고에서 모델을 생성할 때 자동으로 증가하며 생성되는 primary-key
@@ -25,7 +29,7 @@ def create_page(request):
 def detail_page(request, article_pk):
     article = Article.objects.get(pk=article_pk)
     article.viewcount += 1
-    return render(request, 'Baord/detail_page.html', {"article": article})
+    return render(request, 'Board/detail_page.html', {"article": article})
 
 
 def edit_page(request, article_pk):
@@ -41,6 +45,6 @@ def edit_page(request, article_pk):
 def delete(request, article_pk):
     article = Article.objects.get(pk=article_pk)
     article.delete()
-    return redirect('home')
+    return redirect('home_page')
 
 

@@ -1,0 +1,12 @@
+* {
+    font-family:'나눔스퀘어라운드';
+}
+
+h1 {
+    border: solid 3px blue;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}

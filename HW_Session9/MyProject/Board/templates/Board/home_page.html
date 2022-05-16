@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html lang"en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/Board/Home.css' %}">
+</head>
+<body>
+    <h1>글 목록</h1>
+        {% if not articles %}
+        <p>아직 작성된 글이 존재하지 않습니다.</p>
+        {% endif %}
+    <div class="article-container">
+        {% for article in articles %}
+        <div class="article">
+            <a href="{% url 'detail_page' article.pk %}">
+            {{ article.title }}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <a class="button" href="{% url 'create_page' %}">글 작성</a>
+</body>
+</html>
+
+
+
+    

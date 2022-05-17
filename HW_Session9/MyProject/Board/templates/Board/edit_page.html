@@ -6,17 +6,20 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Edit</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'Home.css' %}">
+    <link rel="stylesheet" href="{% static '/Board/Home.css' %}">
 </head>
 <body>
-    <div class="article-container">
-        <form>
+        <form actoin='' method='post'>
         {% csrf_token %}
-            <label for="title">제목</label>
-            <input id="title" name="title" value="{{ article.title }}"/>
-            <label for="content">내용</label>
-            <textarea id="content" name="content" value="{{ article.content }}"></textarea>
-            <button type="submit">저장</button>
+            <div class="detail-title">
+                <label for="title">제목</label>
+                <input id="title" name="title" value="{{ article.title }}" required />
+            </div>
+            <div class="detail-container">
+                <label for="content">내용</label>
+                <textarea id="content" name="content" value="{{ article.content }}"></textarea>
+                <button class="button" type="submit">저장</button>
+            </div>
         </form>
         </div>
     

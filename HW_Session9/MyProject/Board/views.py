@@ -16,9 +16,6 @@ def create_page(request):
             content = request.POST['content'],
             viewcount = 0
         )
-        print(new_article.pk)
-        print(new_article.title)
-        print(new_article.content)
         return redirect('home_page')
         #redirect의 함수 원형: redirect(to, permanent=False, *args, **kwargs)
         # 이동할 URL이 첫번째 인자
@@ -29,6 +26,7 @@ def create_page(request):
 def detail_page(request, article_pk):
     article = Article.objects.get(pk=article_pk)
     article.viewcount += 1
+    article.save()
     return render(request, 'Board/detail_page.html', {"article": article})
 
 
@@ -39,8 +37,8 @@ def edit_page(request, article_pk):
             title = request.POST['title'],
             content = request.POST['content']
         )
-        return redirect('detail', article_pk)
-    return render(request, 'Board/edit.html', {'article': article[0]})
+        return redirect('detail_page', article_pk)
+    return render(request, 'Board/edit_page.html', {'article': article[0]})
 
 def delete(request, article_pk):
     article = Article.objects.get(pk=article_pk)

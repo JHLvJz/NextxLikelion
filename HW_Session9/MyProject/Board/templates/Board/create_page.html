@@ -5,16 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Create</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/Board/Home.css' %}">
 </head>
 <body>
-    <div class="article-container">
     <form action="" method='post'>
     {% csrf_token %}
-        <label for="title">제목</label>
-        <input id="title" name="title" placeholder="제목으르 작성해주세요"/>
-        <label for="content">내용</label>
-        <textarea id="content" name="content" placeholder="내용을 작성해주세요"></textarea>
-        <button type="submit">완료</button>
+        <div class="detail-title">
+            <label for="title">제목</label>
+            <input id="title" name="title" placeholder="제목을 작성해주세요" required/>
+        </div>
+        <div class="detail-container">
+            <label for="content">내용</label>
+            <textarea id="content" name="content" placeholder="내용을 작성해주세요"></textarea>
+            <button class="button" type="submit">완료</button>
+        </div>
     </form>
     </div>
 </body>

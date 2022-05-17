@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Detail</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'Edit.css' %}">
+    <link rel="stylesheet" href="{% static '/Board/Home.css' %}">
 </head>
 <body>
-    <div class="menu-container">
-        <a class="button" href="{% url 'home_page' %}">뒤로가기</a>
-        <a class="button" href="{% url 'edit_page' article.pk %}">수정하기</a>
-        <a class="button" href="{% url 'delete_page' article.pk %}">삭제하기</a>
+    <div class="detail-title">
+        <h2>ABOUT: {{ article.title }}</h2>
+        <p> VIEW [ {{ article.viewcount }} ] <p>
+        <div class="menu-container">
+            <a class="menu-button" href="{% url 'home_page' %}">뒤로가기</a>
+            <a class="menu-button" href="{% url 'edit_page' article.pk %}">수정하기</a>
+            <a class="menu-button" href="{% url 'delete_page' article.pk %}">삭제하기</a>
+        </div>
     </div>
-
-    <div class="article-container">
-        <h2>제목: {{ article.title }}</h2>
-        <p>내용: {{ article.content }}</p>
-        <span> [ {{ article.viewcount }} ] </span>
+    <div class="detail-container">
+        <p>{{ article.content }}</p>
     </div>
     
 </body>

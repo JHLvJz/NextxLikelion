@@ -2,11 +2,93 @@
     font-family:'나눔스퀘어라운드';
 }
 
-h1 {
-    border: solid 3px blue;
+h1, .detail-title {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border: solid 3px black;
     text-align: center;
+    background-color: rgb(255, 230, 0);
+    margin-bottom: 2%;
+    position: relative;
+}
+
+.menu-button {
+    background-color: white;
+    color: black;
+}
+
+.menu-button:hover {
+    color: rgb(255, 84, 27);
+}
+
+.article-container, .detail-container {
+    border: solid 3px black;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+}
+
+.detail-container {
+    border: solid 3px black;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.detail-container > p {
+    font-size: 140%;
+}
+
+.article {
+    background-color: black;
+    width: 20%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin: 2% 1%;
+    text-align: center;
+}
+
+
+.article > a {
+    color: white;
+}
+
+
+.detail-title {
+    position: relative;
+}
+
+.detail-title > p {
+    position: absolute;
+    bottom: 10%;
+    right: 2%;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(255, 84, 27);
+}
+
+.button {
+    border: 2px solid black;
+    background-color: rgb(238, 179, 3);
+    color: white;
+    padding: 1% 1%;
+    position: absolute;
+    right: 0%;
+    top: 110%;
+}
+
+.button:hover {
+    background-color: rgba(248, 187, 5, 0.522);
 }
 
 a {
     text-decoration: none;
+    font-size: 120%;
 }

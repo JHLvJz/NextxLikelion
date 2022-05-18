@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html lang"en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Home</title>
+    {% block CSS %}
+    {% endblock CSS %}
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home_page' %}">HOME  |</a>   
+        <a href="{% url 'create_page'%}">NEW POST  |</a>
+        <a href="">JIHOO</a>
+    </nav>
+    {% block article-list %}
+    {% endblock article-list %}
+    {% block detail %}
+    {% endblock detail %}
+    <footer>
+        <p> Copyright 2022 jihoo.is.sleepy </p>
+        <address>Sindang subway station</address>
+    </footer>
+</body>
+</html>

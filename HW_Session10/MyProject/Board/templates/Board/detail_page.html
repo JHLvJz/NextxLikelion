@@ -1,0 +1,42 @@
+{% extends './base.html' %}
+{% load static %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static '/Board/Home.css' %}">
+{% endblock CSS %}
+{% block detail %}
+    <div class="detail-title">
+        <h2>ABOUT: {{ article.title }}</h2>
+        <p> VIEW [ {{ article.viewcount }} ] <p>
+        <div class="menu-container">
+            <a class="menu-button" href="{% url 'home_page' %}">뒤로가기</a>
+            <a class="menu-button" href="{% url 'edit_page' article.pk %}">수정하기</a>
+            <a class="menu-button" href="{% url 'delete_page' article.pk %}">삭제하기</a>
+        </div>
+    </div>
+    <div class="detail-container">
+        <p>{{ article.content }}</p>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="content" placeholder="댓글 입력">
+        <button type="submit">작성</button>
+    </form>
+    <div class="comment-container">
+        {% for comment in article.comments.all %}
+        <li>
+            {{ comment.content }}
+            <a href="{% url 'delete-comment' article.pk comment.pk %}">삭제</a>
+        </li>
+        {% endfor %}
+    </div>
+{% endblock detail %}
+
+
+
+
+
+
+
+
+
+

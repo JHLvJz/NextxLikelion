@@ -1,0 +1,27 @@
+{% extends './base.html' %}
+{% load static %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static '/Board/Home.css' %}">
+{% endblock CSS %}
+
+    {% block article-list %}
+    <h1>글 목록</h1>
+        {% if not articles %}
+        <p>아직 작성된 글이 존재하지 않습니다.</p>
+        {% endif %}
+    <div class="article-container">
+        {% for article in articles %}
+        <div class="article">
+            <a href="{% url 'detail_page' article.pk %}">
+            {{ article.title }}
+            </a>
+        </div>
+        {% endfor %}
+       <a href="{% url 'create_page' %}" class="btn">작성</a>
+    </div>
+    {% endblock article-list %}
+
+
+
+
+

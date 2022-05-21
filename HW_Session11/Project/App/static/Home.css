@@ -1,0 +1,148 @@
+* {
+    font-family:'나눔스퀘어라운드';
+}
+
+body {
+    /* background-image: url('./pencil.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+h1, .detail-title {
+    padding-top: 4%;
+    padding-bottom: 4%;
+    border: solid 5px black;
+    text-align: center;
+    background-color: rgb(255, 230, 0);
+    margin-bottom: 2%;
+    position: relative;
+}
+
+.menu-button {
+    background-color: white;
+    color: black;
+}
+
+.menu-button:hover {
+    color: rgb(255, 84, 27);
+}
+
+.article-container, .detail-container {
+    border: solid 5px black;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+}
+
+.detail-container {
+    border: solid 3px black;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.detail-container > p {
+    font-size: 140%;
+}
+
+.article {
+    background-color: black;
+    width: 20%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin: 2% 1%;
+    text-align: center;
+}
+
+.article > a:hover {
+    color: rgb(255, 241, 196);
+}
+
+
+.article > a {
+    color: white;
+}
+
+
+.detail-title {
+    position: relative;
+}
+
+.detail-title > p {
+    position: absolute;
+    bottom: 10%;
+    right: 2%;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(255, 84, 27);
+}
+.btn {
+    background-color: rgba(250, 225, 60, 0.998);
+    position: absolute;
+    top: 80%;
+    right: 2%;
+    padding: 1% 1%;
+    border: 1px solid black;
+    color: black;
+}
+
+.btn:hover {
+    opacity: 0.4;
+}
+
+a {
+    text-decoration: none;
+    font-size: 120%;
+}
+
+nav {
+    right: 5%;
+    text-align: end;
+}
+
+nav > a{
+    color: gray;
+}
+
+footer {
+    color: black;
+    opacity: 0.3;
+}
+
+.comment-container {
+    list-style: none;
+    border: 3px solid orange;
+}
+
+ul {
+    list-style:none;
+}
+
+.comment-container > li {
+    margin-bottom: 1%;
+    background: url('./user2.png') left center no-repeat;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 4%;
+}
+
+nav > a:hover {
+    text-decoration-line: overline;
+}
+
+li > a {
+    font-size: 80%;
+    background-color: orange;
+    color: white;
+}
+
+li > a:hover {
+    opacity: 0.3;
+}

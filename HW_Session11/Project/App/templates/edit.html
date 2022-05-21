@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% block css %} 
+{% load static %}
+<link rel="stylesheet" href="{% static 'Home.css' %}" />
+{% endblock css %} 
+{% block content %}
+<form method='post'>
+  {% csrf_token %}
+      <div class="detail-title">
+          <label for="title">제목</label>
+          <input id="title" name="title" value="{{ post.title }}" required />
+      </div>
+      <div class="detail-container">
+          <label for="content">내용</label>
+          <textarea id="content" name="content" value="{{ post.content }}"></textarea>
+          <button class="btn" type="submit">완료</button>
+      </div>
+  </form>
+  </div>
+{% endblock content %}

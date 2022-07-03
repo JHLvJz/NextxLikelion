@@ -1,0 +1,100 @@
+{% extends 'base.html' %} {% block content %}
+<div>
+  <div>
+    <div class="article_title">{{ article.title }}</div>
+    <div class="article_content">{{ article.content }}</div>
+  </div>
+  <a href="{% url 'home' %}">홈으로</a>
+
+  {% if user.is_authenticated and article.author.pk == user.pk %}
+  <div id="scrap-count">찜하기{{ article.scraps.count }}개</div>
+  <a href="{% url 'edit' article.pk %}">수정하기</a>
+  <a href="{% url 'delete' article.pk %}">삭제하기</a>
+  {% endif %} {% for comment in article.comments.all %}
+  <li>{{ comment.content }}</li>
+  {% if user.is_authenticated and comment.author.pk == user.pk %}
+  <a href="{% url 'delete_comment' article.pk comment.pk %}">댓글삭제</a>
+  {% endif %} {% endfor %} {% if user.is_authenticated %}
+  <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="content" placeholder="댓글을 입력하세요" />
+    <button type="submit" color="red">댓글 쓰기</button>
+  </form>
+
+  <button id="like-button" onclick="like();">좋아요</button>
+  <button id="scrap-button" onclick="scrap();" style="color: black;">찜하기</button>
+  {% endif %}
+  <div id="like-count" style="color: black;">좋아요{{ article.likes.count }}개</div>
+
+
+  
+</div>
+
+<script>
+  
+  // like 개수 나타내는 함수 정의 - 클릭이벤트로 html에 삽입 (fetch로 해보자)
+  // fetch 참고하기 좋은 사이트(https://www.daleseo.com/js-window-fetch/)
+  
+  let mylikedata = {}; // 요청 받아왔던 데이터 복사해서 담아둘 변수 (좋아요 개수 number / 좋아요 눌리는 것인가 boolean)
+  let likePart = document.getElementById("like-count")
+  let myscrapdata = {};
+  let scrapPart = document.getElementById("scrap-button")
+
+  const like = () => {
+    fetch('/like', {
+      method: "POST",
+      body: JSON.stringify({article_pk: "{{ article.pk }}"})
+    })
+    .then(response => response.json())
+    // .then(res1 => document.getElementById("like-count").innerHTML = '좋아요' + res1.like_count + '개')
+    .then(res => Object.assign(mylikedata, res))
+    .then(res1 => likePart.innerHTML = '좋아요' + mylikedata.like_count + '개')
+    .then(res2 => Action(mylikedata.isLiked))
+  }
+
+  //좋아요 누를 때 색을 red로 변경
+  function Action(is_liked) {
+    if (is_liked) {
+      likePart.style.color = "red";
+      alert("좋아요가 눌렸어요");
+    }
+    else {
+      likePart.style.color = "black";
+      alert("좋아요가 취소됐어요")
+    }
+  }
+
+  //새로고침 했을 때 로그인한 해당 유저가 좋아요를 눌렀는지를 확인하여 색 판단
+  if({{ isMeLiked }}){
+   likePart.style.color = "red";
+  } 
+
+  const scrap = () => {
+    fetch('/scrap', {
+      method: "POST",
+      body: JSON.stringify({article_pk: "{{ article.pk }}"})
+    })
+    .then(response => response.json())
+    .then(res => Object.assign(myscrapdata, res))
+    .then(res1 => document.getElementById("scrap-count").innerHTML = '찜하기' + myscrapdata.scrap_count + '개')
+    .then(res2 => changeColor2(myscrapdata.isScrapped))
+  }
+
+  //좋아요 누를 때 색을 red로 변경
+  function changeColor2(is_scrapped) {
+    if (is_scrapped) {
+      scrapPart.style.color = "blue";
+    }
+    else {
+      scrapPart.style.color = "black";
+    }
+  }
+
+  //새로고침 했을 때 로그인한 해당 유저가 좋아요를 눌렀는지를 확인하여 색 판단
+  if({{ isMeScrapped }}){
+   scrapPart.style.color = "blue";
+  } 
+</script>
+{% endblock content %}
+
+

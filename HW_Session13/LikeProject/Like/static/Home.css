@@ -1,0 +1,23 @@
+.article-container {
+    display: flex;
+    flex-direction: row;
+    background-color: aqua;
+    height: 500px;
+}
+
+.article {
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    margin-right: 50px;
+    position: relative;
+}
+
+.article > a {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}

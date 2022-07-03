@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block css %} {% load static %}
+<link rel="stylesheet" href="{% static 'Home.css' %}" />
+{% endblock css %} 
+
+{% block content %}
+<h1>Articles</h1>
+{% if not articles %}
+<p>아직 작성된 글이 존재하지 않습니다.</p>
+{% endif %}
+<div class="article-container">
+{% for article in articles %}
+    <div class="article">
+        <a href="{% url 'detail' article.pk %}">
+        {{ article.title }}
+        </a>
+        <p>{{ article.content }}</p>
+    </div>
+{% endfor %}
+</div>
+<a href="{% url 'new' %}" class="btn">작성</a>
+ {% endblock content %}

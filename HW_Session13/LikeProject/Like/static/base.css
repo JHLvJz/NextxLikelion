@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(247, 75, 41);
+}
+
+.nav-bar {
+    height: 80px;
+    background-color: rgb(250, 223, 23);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+.nav-bar > a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-bar > a:hover {
+    font-size: 22px;
+}

@@ -1,21 +1,19 @@
-{% extends 'base.html' %} {% block content %}
-<div>
-  좋아요 누른 글
-  {% for post in liked_posts %}
-  <div>
-    <p>{{ post.article }}</p>
-</div>
-{% endfor %}
+{% extends 'base.html' %} {% block content %} {% block css %}{% load static %}
+<link rel="stylesheet" href="{% static 'Mypage.css' %}" />
+{% endblock css %} 
+<div class="wrap">
+  <div class="like-container">
+    <h5>What You Liked</h5>
+    {% for post1 in liked_posts %}
+    <li>{{ post1.article }}</li>
+    {% endfor %}
   </div>
-</div>
-<div>
-  찜하기 누른 글
-  <div>
-    {% for post in scrapped_posts %}
-  <div>
-    <p>{{ post.article }}</p>
-</div>
-{% endfor %}
+  
+  <div class="scrap-container">
+    <h5>What You Scrapped</h5>
+    {% for post2 in scrapped_posts %}
+      <li>{{ post2.article }}</li>
+    {% endfor %}
   </div>
-  {% endblock content %}
-</div>
+{% endblock content %}
+

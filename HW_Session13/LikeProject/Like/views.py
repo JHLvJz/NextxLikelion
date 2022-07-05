@@ -33,11 +33,14 @@ def new(request):
 def detail(request, article_pk):
     article = Article.objects.get(pk = article_pk)
     #로그인한 유저가 좋아요를 눌렀는지 따로 확인
+
     isMeLiked = Like.objects.filter(
+        article = article,
         author = request.user
     ).count() 
     #로그인한 유저가 찜하기를 눌렀는지 따로 확인
     isMeScrapped = Scrap.objects.filter(
+        article = article,
         author = request.user
     ).count()
 
@@ -60,7 +63,7 @@ def edit(request, article_pk):
             content = request.POST['content']
         )
         return redirect('detail', article_pk)
-    return render(request, 'edit.html', {'article', article})
+    return render(request, 'edit.html', {'article': article})
 
 def delete(request, article_pk):
     article = Article.objects.get(pk = article_pk)
@@ -120,7 +123,6 @@ def logout(request):
 @csrf_exempt
 def like(request):
     isLiked = False
-
     if request.method == "POST":
         request_body = json.loads(request.body)
         article_pk = request_body["article_pk"]
@@ -185,11 +187,13 @@ def scrap(request):
         response = {
             'scrap_count': article_scraps.count(), 'isScrapped' : isScrapped
         }
-
+        
         return HttpResponse(json.dumps(response))
 
 #------Mypage------
 def mypage(request):
     liked_posts = Like.objects.filter(author = request.user)
     scrapped_posts = Scrap.objects.filter(author = request.user)
-    return render(request, 'mypage.html', {'liked_posts':liked_posts, 'scrapped_posts':scrapped_posts,})
+    print(scrapped_posts)
+    print(liked_posts)
+    return render(request, 'mypage.html', {'liked_posts':liked_posts, 'scrapped_posts':scrapped_posts})

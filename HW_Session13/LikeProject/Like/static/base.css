@@ -1,10 +1,19 @@
+@font-face {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Assistant', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Titan One', cursive;
+}
+
 body {
     background-color: rgb(247, 75, 41);
 }
 
 .nav-bar {
     height: 80px;
-    background-color: rgb(250, 223, 23);
+    background-color: rgb(250, 237, 50);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -12,9 +21,14 @@ body {
     box-sizing: border-box;
 }
 
+.nav-item {
+    font-family: 'Anton';
+}
+
 .nav-bar > a {
     text-decoration: none;
     color: black;
+    font-family: 'Anton';
 }
 
 .nav-bar > a:hover {

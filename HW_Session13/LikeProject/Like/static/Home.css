@@ -1,14 +1,23 @@
+@font-face {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Assistant', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Titan One', cursive;
+}
+
 .article-container {
     display: flex;
     flex-direction: row;
-    background-color: aqua;
+    /* background-color: aqua; */
     height: 500px;
 }
 
 .article {
     width: 300px;
     height: 400px;
-    background-color: white;
+    background-color: rgb(217, 249, 58);
     margin-right: 50px;
     position: relative;
 }
@@ -20,4 +29,38 @@
     font-size: 30px;
     text-decoration: none;
     color: black;
+    border-top: 3px solid black;
+    font-family: 'Bebas Neue';
+}
+
+.article > a:hover {
+    color: rgb(9, 211, 110);
+}
+
+.article > p {
+    position: absolute;
+    top: 70px;
+    left: 12px;
+    font-family: 'Barlow Condensed';
+}
+
+.btn {
+   text-decoration: none;
+   color: black;
+   background-color: rgb(250, 237, 50);
+   padding: 4px 4px;
+   height: 20px;
+   width: 60px;
+   text-align: center;
+   box-sizing: border-box;
+   font-family: 'Anton';
+
+}
+
+.btn:hover {
+    opacity: 70%;
+}
+
+h1 {
+    font-family: 'Titan One';
 }

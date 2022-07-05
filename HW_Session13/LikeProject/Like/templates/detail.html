@@ -1,37 +1,48 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% block css %}{% load static %}
+<link rel="stylesheet" href="{% static 'Detail.css' %}" />
+{% endblock css %} 
 <div>
-  <div>
-    <div class="article_title">{{ article.title }}</div>
-    <div class="article_content">{{ article.content }}</div>
+  <div class="article">
+    <div class="article-title">{{ article.title }}</div>
+    <div class="article-content">{{ article.content }}</div>
+    {% if user.is_authenticated and article.author.pk == user.pk %}
+    <div id="scrap-count">Scrap{{ article.scraps.count }}개</div>
+    <a class="edit" href="{% url 'edit' article.pk %}">EDIT</a>
+    <a class="delete" href="{% url 'delete' article.pk %}">DELETE</a>
+    {% endif %}
+    <a href="{% url 'home' %}" id="home">MAIN</a>
+    {% if user.is_authenticated %}
+    <button id="like-button" onclick="like();">Like</button>
+    <button id="scrap-button" onclick="scrap();" style="color: black;">Scrap</button>
+    {% endif %}
+    <div id="like-count" style="color: black;">Like{{ article.likes.count }}개</div>
+
+    {% if user.is_authenticated %}
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="content" placeholder="댓글을 입력하세요" />
+      <button type="submit" color="red">댓글 쓰기</button>
+    </form>
+    {% endif %}
   </div>
-  <a href="{% url 'home' %}">홈으로</a>
 
-  {% if user.is_authenticated and article.author.pk == user.pk %}
-  <div id="scrap-count">찜하기{{ article.scraps.count }}개</div>
-  <a href="{% url 'edit' article.pk %}">수정하기</a>
-  <a href="{% url 'delete' article.pk %}">삭제하기</a>
-  {% endif %} {% for comment in article.comments.all %}
-  <li>{{ comment.content }}</li>
-  {% if user.is_authenticated and comment.author.pk == user.pk %}
-  <a href="{% url 'delete_comment' article.pk comment.pk %}">댓글삭제</a>
-  {% endif %} {% endfor %} {% if user.is_authenticated %}
-  <form method="POST">
-    {% csrf_token %}
-    <input type="text" name="content" placeholder="댓글을 입력하세요" />
-    <button type="submit" color="red">댓글 쓰기</button>
-  </form>
+  <div class="comment-container">
+    <ul>
+      {% for comment in article.comments.all %}
+      <li>{{ comment.content }}</li>
+      {% if user.is_authenticated and comment.author.pk == user.pk %}
+      <a id="comment-del" href="{% url 'delete_comment' article.pk comment.pk %}">삭제</a>
+      {% endif %} {% endfor %} 
+    </ul>
+  </div>
 
-  <button id="like-button" onclick="like();">좋아요</button>
-  <button id="scrap-button" onclick="scrap();" style="color: black;">찜하기</button>
-  {% endif %}
-  <div id="like-count" style="color: black;">좋아요{{ article.likes.count }}개</div>
 
 
   
 </div>
 
 <script>
-  
+  // console.log({{ isMeLiked }}) //왜 좋아요 취소했을 때도 1일까?
   // like 개수 나타내는 함수 정의 - 클릭이벤트로 html에 삽입 (fetch로 해보자)
   // fetch 참고하기 좋은 사이트(https://www.daleseo.com/js-window-fetch/)
   
@@ -48,12 +59,12 @@
     .then(response => response.json())
     // .then(res1 => document.getElementById("like-count").innerHTML = '좋아요' + res1.like_count + '개')
     .then(res => Object.assign(mylikedata, res))
-    .then(res1 => likePart.innerHTML = '좋아요' + mylikedata.like_count + '개')
-    .then(res2 => Action(mylikedata.isLiked))
+    .then(res1 => likePart.innerHTML = 'Like' + mylikedata.like_count + '개')
+    .then(res2 => changeColor1(mylikedata.isLiked))
   }
 
   //좋아요 누를 때 색을 red로 변경
-  function Action(is_liked) {
+  function changeColor1(is_liked) {
     if (is_liked) {
       likePart.style.color = "red";
       alert("좋아요가 눌렸어요");
@@ -65,6 +76,7 @@
   }
 
   //새로고침 했을 때 로그인한 해당 유저가 좋아요를 눌렀는지를 확인하여 색 판단
+  console.log({{isMeLiked}})
   if({{ isMeLiked }}){
    likePart.style.color = "red";
   } 
@@ -76,8 +88,8 @@
     })
     .then(response => response.json())
     .then(res => Object.assign(myscrapdata, res))
-    .then(res1 => document.getElementById("scrap-count").innerHTML = '찜하기' + myscrapdata.scrap_count + '개')
     .then(res2 => changeColor2(myscrapdata.isScrapped))
+    .then(res1 => document.getElementById("scrap-count").innerHTML = 'Scrap' + myscrapdata.scrap_count + '개')
   }
 
   //좋아요 누를 때 색을 red로 변경

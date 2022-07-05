@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Assistant', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Titan One', cursive;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.like-container {
+    background-color: rgb(230, 184, 244);
+    width: 500px;
+    height: 500px;
+    position: relative;
+    top: 50px;
+}
+.like-container > h5 {
+    position: absolute;
+    top: -90px;
+    font-size: 30px;
+
+}
+
+.scrap-container {
+    background-color: rgb(255, 201, 167);
+    width: 500px;
+    height: 500px;
+    position: relative;
+    top: 50px;
+}
+
+.scrap-container > h5 {
+    position: absolute;
+    top: -90px;
+    font-size: 30px;
+
+}
+
+li {
+    list-style: square;
+    margin-top: 20px;
+    font-family: 'Barlow Condensed';
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+h5 {
+    font-family: 'Titan One';
+}
